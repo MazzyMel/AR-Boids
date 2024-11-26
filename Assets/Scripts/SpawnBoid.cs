@@ -37,6 +37,6 @@ public class SpawnBoid : MonoBehaviour
         Quaternion randomRotation = Quaternion.Euler(0f, Random.Range(0f, 360f), 0f);
         
         //create a new boid
-        Instantiate(Boid, randomPosition, randomRotation) ;	
+        Instantiate(Boid, randomPosition, randomRotation, gameObject.transform);	
     }
 }

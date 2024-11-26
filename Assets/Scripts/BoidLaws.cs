@@ -9,28 +9,34 @@ public class BoidLaws : MonoBehaviour
     [Header("Flying properties")]
     Transform referencePoint;
     public float rotationSpeed;
-    public float flyingRangeRadius;
-    public float speed = 2;
+    public float baseSpeed;
 
     [Header("Sight properties")]
-    [Tooltip("How close can 2 boids be next to eachother")]
-    public float avoidanceDistance;
+    
     public float EyesightRadius;
     public float EyesightAngle;
 
     [HideInInspector]
     private Collider[] colliders;
-
-
+    private float speed;
+    private float flyingRangeRadius;
+    private float flyingSpeedUpRadius;
+    private float avoidanceDistance;
 
     // private GameObject[]
     public void Start()
     {
+
+        speed = baseSpeed;
         referencePoint = GameObject.Find("Bounds").transform;
+        
     }
 
     void Update()
     {
+        flyingRangeRadius = referencePoint.GetComponent<BoundsValues>().flyingRangeRadius;
+        flyingSpeedUpRadius = referencePoint.GetComponent<BoundsValues>().flyingSpeedUpRadius;
+        avoidanceDistance = referencePoint.GetComponent<BoundsValues>().avoidanceDistance;
         // Moves the object forward
         transform.Translate(Vector3.forward * speed * Time.deltaTime);
         
@@ -67,11 +73,25 @@ public class BoidLaws : MonoBehaviour
     
     void StayInArea()
     {
-        if(Vector3.Distance(transform.position, referencePoint.position) > flyingRangeRadius)
+        float distanceFromFocusPoint = Vector3.Distance(transform.position, referencePoint.position);
+
+        if(distanceFromFocusPoint > flyingRangeRadius)
         {
+            //Get a rotation that gets you to the bounds
             Vector3 direction = Vector3.Reflect(transform.position, (transform.position - referencePoint.position).normalized);
             Quaternion targetRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+
+            //the further away you are from bounds the faster the Boids should move
+            if(distanceFromFocusPoint > flyingSpeedUpRadius)
+            {
+                speed = baseSpeed * (distanceFromFocusPoint - flyingSpeedUpRadius)+1;
+                transform.LookAt(referencePoint);
+            }
+            else
+            {
+                speed = baseSpeed;
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+            }
         }
     }
     

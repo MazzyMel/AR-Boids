@@ -101,7 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rotationSpeed: 1
   flyingRangeRadius: 1
-  speed: 0.5
+  baseSpeed: 0.6
+  speedMultiplier: 4
   avoidanceDistance: 0.15
   EyesightRadius: 0.27
   EyesightAngle: 90
