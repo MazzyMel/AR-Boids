@@ -64,6 +64,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2830bee1c2f7d6a4386eee66fb83311f, type: 3}
+      propertyPath: m_TagString
+      value: Boid
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -73,7 +77,10 @@ PrefabInstance:
       addedObject: {fileID: 6625267657616785798}
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2830bee1c2f7d6a4386eee66fb83311f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5101316845493231278}
+      addedObject: {fileID: 4314739037739948394}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 2830bee1c2f7d6a4386eee66fb83311f, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8659540002498885994}
   m_SourcePrefab: {fileID: 100100000, guid: 2830bee1c2f7d6a4386eee66fb83311f, type: 3}
 --- !u!1 &4926936227761335361 stripped
 GameObject:
@@ -92,10 +99,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb6435e4f97bf8a468cfebfc66b117a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotationSpeed: 3
-  flyingRangeRadius: 4
-  speed: 2
---- !u!135 &5101316845493231278
+  rotationSpeed: 1
+  flyingRangeRadius: 1
+  speed: 0.5
+  avoidanceDistance: 0.15
+  EyesightRadius: 0.27
+  EyesightAngle: 90
+--- !u!54 &4314739037739948394
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4926936227761335361}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!135 &8659540002498885994
 SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -114,5 +151,5 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.1
+  m_Radius: 0.01
   m_Center: {x: 0, y: 0, z: 0}

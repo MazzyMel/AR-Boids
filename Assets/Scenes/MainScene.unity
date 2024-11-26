@@ -6044,7 +6044,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Boid: {fileID: 4926936227761335361, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
-  positionRange: {x: 1, y: 0, z: 1}
+  positionRange: {x: 1, y: 1, z: 1}
+  startingSpawnCount: 90
 --- !u!1 &1125844488
 GameObject:
   m_ObjectHideFlags: 0
@@ -11309,6 +11310,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Cone
       objectReference: {fileID: 0}
+    - target: {fileID: 4926936227761335361, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5101316845493231278, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
+      propertyPath: m_Radius
+      value: 0.04
+      objectReference: {fileID: 0}
     - target: {fileID: 5698230872508462843, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0
@@ -11350,12 +11359,20 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6625267657616785798, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
+      propertyPath: speed
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6625267657616785798, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
       propertyPath: referencePoint
       value: 
       objectReference: {fileID: 1388621991}
     - target: {fileID: 6625267657616785798, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
       propertyPath: flyingRangeRadius
-      value: 4
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8659540002498885994, guid: cd7ef167af5407b4bb72d03b2eacf29f, type: 3}
+      propertyPath: m_Radius
+      value: 0.01
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
